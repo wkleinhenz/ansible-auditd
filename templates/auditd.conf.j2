@@ -1,0 +1,48 @@
+{{ ansible_managed | comment }}
+{% macro auditd_conf_format(option, value) -%}
+{% if value is not none %}
+{% if value is sameas true %}
+{{ option }} = yes
+{% elif value is sameas false %}
+{{ option }} = no
+{% else %}
+{{ option }} = {{ value }}
+{% endif %}
+{% endif %}
+{%- endmacro -%}
+#
+# This file controls the configuration of the audit daemon
+#
+{{ auditd_conf_format("local_events", auditd_local_events) -}}
+{{ auditd_conf_format("write_logs", auditd_write_logs) -}}
+{{ auditd_conf_format("log_file", auditd_log_file) -}}
+{{ auditd_conf_format("log_group", auditd_log_group) -}}
+{{ auditd_conf_format("log_format", auditd_log_format) -}}
+{{ auditd_conf_format("flush", auditd_flush) -}}
+{{ auditd_conf_format("freq", auditd_freq) -}}
+{{ auditd_conf_format("max_log_file", auditd_max_log_file) -}}
+{{ auditd_conf_format("num_logs", auditd_num_logs) -}}
+{{ auditd_conf_format("priority_boost", auditd_priority_boost) -}}
+{{ auditd_conf_format("disp_qos", auditd_disp_qos) -}}
+{{ auditd_conf_format("dispatcher", auditd_dispatcher) -}}
+{{ auditd_conf_format("name_format", auditd_name_format) -}}
+{{ auditd_conf_format("name", auditd_name) -}}
+{{ auditd_conf_format("max_log_file_action", auditd_max_log_file_action) -}}
+{{ auditd_conf_format("space_left", auditd_space_left) -}}
+{{ auditd_conf_format("space_left_action", auditd_space_left_action) -}}
+{{ auditd_conf_format("verify_email", auditd_verify_email) -}}
+{{ auditd_conf_format("action_mail_acct", auditd_action_mail_acct) -}}
+{{ auditd_conf_format("admin_space_left", auditd_admin_space_left) -}}
+{{ auditd_conf_format("admin_space_left_action", auditd_admin_space_left_action) -}}
+{{ auditd_conf_format("disk_full_action", auditd_disk_full_action) -}}
+{{ auditd_conf_format("disk_error_action", auditd_disk_error_action) -}}
+{{ auditd_conf_format("tcp_listen_port", auditd_tcp_listen_port) -}}  
+{{ auditd_conf_format("use_libwrap", auditd_use_libwrap) -}}  
+{{ auditd_conf_format("tcp_listen_queue", auditd_tcp_listen_queue) -}}  
+{{ auditd_conf_format("tcp_max_per_addr", auditd_tcp_max_per_addr) -}}  
+{{ auditd_conf_format("tcp_client_ports", auditd_tcp_client_ports) -}}  
+{{ auditd_conf_format("tcp_client_max_idle", auditd_tcp_client_max_idle) -}}  
+{{ auditd_conf_format("enable_krb5", auditd_enable_krb5) -}}  
+{{ auditd_conf_format("krb5_principal", auditd_krb5_principal) -}}  
+{{ auditd_conf_format("krb5_key_file", auditd_krb5_key_file) -}}  
+{{ auditd_conf_format("distribute_network", auditd_distribute_network) -}}  

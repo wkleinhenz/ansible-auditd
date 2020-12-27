@@ -1,0 +1,33 @@
+---
+#Auditd variables for debian
+
+auditd__package: "auditd"
+
+auditd__log_group: adm
+
+auditd__package_manager_execs:
+  - /usr/bin/dpkg
+  - /usr/bin/apt-add-repository
+  - /usr/bin/apt-get 
+  - /usr/bin/aptitude
+  - /usr/bin/apt
+  - /usr/bin/wajig
+
+auditd__package_manager_files:
+  - /etc/apt/sources.list
+  - /etc/apt/sources.list.d
+
+auditd__network_files:
+  - /etc/hosts
+  - /etc/resolv.conf
+  - /etc/network/
+
+auditd__firewall_files:
+  - /etc/nftables.conf
+  - /etc/firewalld
+  - /usr/lib/firewalld
+  - /etc/iptables.up.rules
+
+auditd__service_name: "auditd"
+
+auditd__augenrules_bin: "/sbin/augenrules"

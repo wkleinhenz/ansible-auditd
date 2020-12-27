@@ -1,0 +1,22 @@
+galaxy_info:
+  role_name: auditd
+  author: Robert Brightling
+  description: Manage Auditd Services and configuration.
+
+  license: LGPLv3
+
+  min_ansible_version: 2.8
+
+  platforms:
+    - name: debian
+      versions:
+      - buster
+    - name: EL
+      versions:
+      - 8
+
+  galaxy_tags:
+    - auditd
+    - audit
+
+dependencies: []

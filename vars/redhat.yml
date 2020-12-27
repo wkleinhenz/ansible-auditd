@@ -1,0 +1,34 @@
+---
+#Auditd variables for RedHat
+
+auditd__package: "audit"
+
+auditd__log_group: root
+
+auditd__package_manager_execs:
+  - /usr/bin/rpm
+  - /usr/bin/yum
+  - /usr/bin/dnf
+  - /usr/bin/dnf-3
+
+auditd__package_manager_files:
+  - /etc/yum.repos.d
+
+auditd__network_files:
+  - /etc/hosts
+  - /etc/resolv.conf
+  - /etc/sysconfig/network
+  - /etc/sysconfig/network-scripts
+  - /etc/networks
+  - /etc/NetworkManager/
+
+auditd__firewall_files:
+  - /etc/nftables
+  - /etc/firewalld
+  - /usr/lib/firewalld
+  - /etc/sysconfig/iptables
+  - /etc/sysconfig/ip6tables
+
+auditd__service_name: "auditd"
+auditd__augenrules_bin: "/sbin/augenrules"
+auditd__service_use: "service"

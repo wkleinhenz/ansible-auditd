@@ -1,0 +1,65 @@
+---
+# tasks file for auditd
+
+- name: include distro variables
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution | lower }}.yml"
+        - "{{ ansible_os_family | lower }}.yml"
+      paths:
+        - '{{ playbook_dir }}/vars'
+        - '{{ role_path }}/vars'
+
+- name: install auditd package
+  package:
+    name: "{{ auditd__package }}"
+    state: present
+  become: true
+  tags:
+    - install
+
+- name: template auditd configuration
+  template:
+    src: auditd.conf.j2
+    dest: /etc/audit/auditd.conf
+    owner: root
+    group: root
+    mode: "0640"
+  notify:
+    - restart auditd service
+  become: true
+
+- name: template audit rules
+  template:
+    src: audit.rules.j2
+    dest: /etc/audit/rules.d/audit.rules
+    owner: root
+    group: root
+    mode: "0640"
+  become: true
+
+- name: set kerb5 key file permissions
+  file:
+    path: "{{ auditd_krb5_key_file }}"
+    owner: root
+    group: root
+    mode: '0400'
+  when: auditd_krb5_key_file|bool
+
+- name: start and enable auditd service
+  service:
+    name: "{{ auditd__service_name }}"
+    state: started
+    enabled: true
+  become: true
+
+- name: load auditd rules
+  command: "{{ auditd__augenrules_bin }} --load"
+  register: reg_auditd_load_rules
+  changed_when: "'No change' not in reg_auditd_load_rules.stdout_lines[0]"
+  when: auditd_local_events | bool
+  notify:
+    - restart auditd service
+  become: true

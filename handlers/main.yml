@@ -1,0 +1,9 @@
+---
+# handlers file for auditd
+
+- name: restart auditd service
+  service:
+    name: "{{ auditd__service_name }}"
+    state: "restarted"
+    use: "{{ auditd__service_use | default(omit) }}"
+  become: true
