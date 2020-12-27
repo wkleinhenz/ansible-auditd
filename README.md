@@ -1,7 +1,7 @@
 Auditd
 ======
 
-![Test Ansible Role](https://github.com/rbrightling/ansible-auditd/workflows/Test%20Ansible%20Role/badge.svg?branch=main) ![Ansible Galaxy](http://img.shields.io/badge/galaxy-rbrightling.auditd-660198.svg?style=flat)](https://galaxy.ansible.com/rbrightling/auditd)
+![Test Ansible Role](https://github.com/rbrightling/ansible-auditd/workflows/Test%20Ansible%20Role/badge.svg?branch=main) [![Ansible Galaxy](http://img.shields.io/badge/galaxy-rbrightling.auditd-660198.svg?style=flat)](https://galaxy.ansible.com/rbrightling/auditd)
 
 Install and load a basic set of security rules to auditd service.
 
