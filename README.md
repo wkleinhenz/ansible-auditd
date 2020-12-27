@@ -1,6 +1,8 @@
 Auditd
 ======
 
+![Test Ansible Role](https://github.com/rbrightling/ansible-auditd/workflows/Test%20Ansible%20Role/badge.svg?branch=main) ![Ansible Galaxy](http://img.shields.io/badge/galaxy-rbrightling.auditd-660198.svg?style=flat)](https://galaxy.ansible.com/rbrightling/auditd)
+
 Install and load a basic set of security rules to auditd service.
 
 **NOTE:** These are Generic rules which should work on all systems. 
@@ -21,7 +23,7 @@ Supported OS:
 Role Variables
 --------------
 
-```
+```yaml
 # Collect local events
 # Auditd doesn't collect events when running in a container and can only be used to aggregate logs from other systems.
 auditd_local_events: "{{ false if ansible_virtualization_role | default(null) == 'guest' and ansible_virtualization_type in ('docker','podman') else true}}"
