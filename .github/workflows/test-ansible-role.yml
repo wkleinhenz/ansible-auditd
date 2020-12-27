@@ -1,0 +1,14 @@
+name: Test Ansible Role
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+     - name: Ansible Lint
+       uses: ansible/ansible-lint-action@master
+       with:
+         targets: ""
