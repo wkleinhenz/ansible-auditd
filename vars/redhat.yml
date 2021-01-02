@@ -3,7 +3,7 @@
 
 auditd__package: "audit"
 
-auditd__log_group: root
+auditd__log_group: splunk
 
 auditd__package_manager_execs:
   - /usr/bin/rpm
