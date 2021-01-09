@@ -1,7 +1,7 @@
 ---
 # handlers file for auditd
-  - name: Reload Auditd
-    command: /usr/sbin/service auditd reload
-    args:
-      warn: false
-  become: true
+
+- name: Reload Auditd
+  command: /usr/sbin/service auditd reload
+  args:
+    warn: false
