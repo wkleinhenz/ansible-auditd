@@ -60,12 +60,6 @@
   register: reg_auditd_load_rules
   changed_when: "'No change' not in reg_auditd_load_rules.stdout_lines[0]"
   when: auditd_local_events | bool
-
-  become: true
-
-- name: restart auditd service
-  service:
-    name: "{{ auditd__service_name }}"
-    state: "restarted"
-    use: "{{ auditd__service_use | default(omit) }}"
+  notify:
+    - Reload Auditd
   become: true
