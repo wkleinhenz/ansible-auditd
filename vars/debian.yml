@@ -3,7 +3,7 @@
 
 auditd__package: "auditd"
 
-auditd__log_group: adm
+auditd__log_group: splunk
 
 auditd__package_manager_execs:
   - /usr/bin/dpkg

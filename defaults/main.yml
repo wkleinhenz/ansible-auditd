@@ -219,17 +219,17 @@ auditd_package_manager_execs: "{{ auditd__package_manager_execs }}"
 #   - /usr/bin/aptitude
 #   - /usr/bin/apt
 #   - /usr/bin/wajig
-# RedHat:
-#   - /usr/bin/rpm
-#   - /usr/bin/yum
-#   - /usr/bin/dnf
-#   - /usr/bin/dnf-3
+RedHat:
+  - /usr/bin/rpm
+  - /usr/bin/yum
+  - /usr/bin/dnf
+  - /usr/bin/dnf-3
 auditd_package_manager_files: "{{ auditd__package_manager_files }}"
 # Debian:
 #   - /etc/apt/sources.list
 #   - /etc/apt/sources.list.d
-# RedHat:
-#   - /etc/yum.repos.d
+RedHat:
+  - /etc/yum.repos.d
 
 # Audit system network files
 auditd_network_files: "{{ auditd__network_files }}"
@@ -237,13 +237,13 @@ auditd_network_files: "{{ auditd__network_files }}"
 #   - /etc/hosts
 #   - /etc/resolv.conf
 #   - /etc/network/
-# RedHat:
-#   - /etc/hosts
-#   - /etc/resolv.conf
-#   - /etc/sysconfig/network
-#   - /etc/sysconfig/network-scripts
-#   - /etc/networks
-#   - /etc/NetworkManager/
+RedHat:
+  - /etc/hosts
+  - /etc/resolv.conf
+  - /etc/sysconfig/network
+  - /etc/sysconfig/network-scripts
+  - /etc/networks
+  - /etc/NetworkManager/
 
 # Audit system firewall files
 auditd_firewall_files: "{{ auditd__firewall_files }}"
@@ -252,9 +252,9 @@ auditd_firewall_files: "{{ auditd__firewall_files }}"
 #   - /etc/firewalld
 #   - /etc/lib/firewalld
 #   - /etc/iptables.up.rules
-# RedHat:
-#   - /etc/nftables
-#   - /etc/firewalld
-#   - /etc/lib/firewalld
-#   - /etc/sysconfig/iptables
-#   - /etc/sysconfig/ip6tables
+RedHat:
+  - /etc/nftables
+  - /etc/firewalld
+  - /etc/lib/firewalld
+  - /etc/sysconfig/iptables
+  - /etc/sysconfig/ip6tables
