@@ -60,6 +60,11 @@
   register: reg_auditd_load_rules
   changed_when: "'No change' not in reg_auditd_load_rules.stdout_lines[0]"
   when: auditd_local_events | bool
-  notify:
-    - Reload Auditd
+  # notify:
+  #   - Reload Auditd
   become: true
+
+- name: Reload Auditd
+  command: /usr/sbin/service auditd reload
+  args:
+    warn: false
