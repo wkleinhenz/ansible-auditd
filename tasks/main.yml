@@ -28,7 +28,7 @@
     group: root
     mode: "0640"
   notify:
-    - restart auditd service
+    - Reload Auditd
   become: true
 
 - name: template audit rules
